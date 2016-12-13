@@ -127,13 +127,13 @@ timer_start(struct timer *tm)
     }
 }
 
-/*static void
+static void
 timer_reset(struct timer *tm)
 {
     tm->accum.tv_sec = 0;
     tm->accum.tv_nsec = 0;
     tm->isPaused = false;
-}*/
+}
 
 static uint64_t
 timer_end(struct timer *tm, enum answerUnit_t unit)
@@ -276,7 +276,7 @@ void ftimer_declare_(int *t1, int *t2, int *t3, int *t4)
 void ftimer_start_(int *t)
 {
 	timer_init(CLOCK_REALTIME, timer_ary + *t);
-	time_start(timer_ary + *t);
+	timer_start(timer_ary + *t);
 
 }
 
